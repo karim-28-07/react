@@ -6,7 +6,9 @@ class App extends React.Component {
             <div className="box col-sm-3col-6" >
                 
                     
-                <span class="material-icons"style={{ fontSize: 100, color: 'black' }}  >directions_walk </span>
+                <span> class={this.props.icon} style={this.props.color} directions_walk </span>
+                <p> {this.props.value} </p>
+                <p>{this.props.unit}</p>
                             
             </div>
                         
