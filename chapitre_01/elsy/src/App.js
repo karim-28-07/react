@@ -1,6 +1,7 @@
 import React from "react";
 import './App.css';
 import Steps from './components/Steps';
+import './styles/global.css'
 
 const tempMin = -20
 const tempMax = 40
@@ -10,6 +11,9 @@ const stepsMin = 0
 const stepsMAx = 50000
 
 class App extends React.Component {
+  constructor(){
+    super()
+  }
   render() {
     return (
       <div className = "container-fluid">
