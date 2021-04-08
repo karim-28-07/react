@@ -11,9 +11,7 @@ const stepsMin = 0
 const stepsMAx = 50000
 
 class App extends React.Component {
-  constructor(){
-    super()
-  }
+  
   render() {
     return (
       <div className = "container-fluid">
