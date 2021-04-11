@@ -31,11 +31,17 @@ class App extends React.Component {
 
 
   render() {
-    return (
-      <div className="container-fluid">
 
-        
-            <div className="row">
+    if (Box !== "local_drink") {
+
+
+
+      return (
+        <div className="container-fluid">
+
+
+          <div className="row">
+           
 
               {/* Water */}
               <Box icon="local_drink" color="#3A85FF" value={1.5} unit="L"></Box>
@@ -51,15 +57,16 @@ class App extends React.Component {
               <p>Heart : {stepsMin} </p>
 
 
-              
+
             </div>
 
 
 
 
 
-      </div>
+          </div>
     );
+  }
   }
 }
 
