@@ -7,4 +7,16 @@
         padding: 10px;
         position: relative;
     }
+    .nav-active {
+        &::after{
+            content: "";
+            width:85% ;
+            height:5px ;
+            background: $color-1;
+            position:absolute;
+            bottom: 1px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
 }
