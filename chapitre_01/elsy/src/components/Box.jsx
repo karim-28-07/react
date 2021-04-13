@@ -1,35 +1,61 @@
 import React from "react";
-import InputRange from 'react-input-range';
 
-class App extends React.Component {
+
+class Box extends React.Component {
 
     constructor(props) {
         super(props)
     }
+
+    
+
     render() {
+        if (this.props.unit !== "L") {
+            return (
+                <>
+                    
+                    <div className="box col-sm-3 col-6" >
+                        <span className="material-icons" style={{ fontSize: 100, color: this.props.color }}>
+                            {this.props.icon}
+                        </span>
+                        <p>{this.props.value} {this.props.unit} </p>
+                        <input type="range" min={this.props.stepsMin} max={this.props.stepsMax}
+                        value={this.props.value} onInput/>
+
+                    </div>
+                </>
+
+
+            )
+        }
+
         return (
 
-
             <div className="box col-sm-3 col-6" >
-                <InputRange
-                    
-                    max={this.props.max}
-                    min={this.props.min}
-                    value={this.props.value}
-                    oninput={value => this.setState({ value })} />
-
-                <span class="material-icons" style={{ fontSize: 100, color: this.props.color }}>
+                <span className="material-icons" style={{ fontSize: 100, color: this.props.color }}>
                     {this.props.icon}
                 </span>
                 <p>{this.props.value} {this.props.unit} </p>
+
             </div>
-
-
-
-
-
         );
+
     }
 }
 
-export default App;
+export default Box;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
