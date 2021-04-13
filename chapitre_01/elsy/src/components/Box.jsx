@@ -10,6 +10,8 @@ class Box extends React.Component {
     
 
     render() {
+
+        const { color, unit, value, min, max, icon, onChange} = this.props
         if (this.props.unit !== "L") {
             return (
                 <>
@@ -18,9 +20,8 @@ class Box extends React.Component {
                         <span className="material-icons" style={{ fontSize: 100, color: this.props.color }}>
                             {this.props.icon}
                         </span>
-                        <p>{this.props.value} {this.props.unit} </p>
-                        <input type="range" min={this.props.stepsMin} max={this.props.stepsMax}
-                        value={this.props.value} onInput/>
+                        <p>{value} {unit} </p>
+                        <input type="range" min={min} max={max}  onInput= {onChange}  />
 
                     </div>
                 </>
