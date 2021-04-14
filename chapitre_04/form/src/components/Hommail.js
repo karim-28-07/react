@@ -15,7 +15,7 @@ class hommail extends React.Component {
                     type="email" 
                     className="form-control" 
                     value ={this.props.email} 
-                    onInput ={this.onValidateemail} />
+                    onInput ={this.props.onValidateemail} />
                 </div>
 
 
@@ -25,7 +25,7 @@ class hommail extends React.Component {
                     type="password" 
                     className="form-control" 
                     value = {this.props.password}
-                    onInput ={this.onValidatpassword} />
+                    onInput ={this.props.onValidatepassword} />
                 </div>
 
             </div>
