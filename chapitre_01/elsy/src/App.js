@@ -36,6 +36,7 @@ class App extends React.Component {
       heart: event.target.value
 
     })
+    this.calculateWater()
   }
 
   onStepsChange(event) {
@@ -44,6 +45,7 @@ class App extends React.Component {
       steps: event.target.value
 
     })
+    this.calculateWater()
   }
 
 
@@ -53,18 +55,36 @@ class App extends React.Component {
       temperature: event.target.value
 
     })
+    this.calculateWater()
   }
-
-
-  calculateWater(){
-
-      if(temperature>20){
-        
-      }
-  }
-
 
   
+  calculateWater() {
+    
+    let changeWater = (addTemp + addHeart + addSteps) + 1.5
+
+    if (this.state.temperature > 20) {
+
+    const addTemp = (this.state.temperature - 20) * 0.02
+
+      
+    } else if (this.state.heart > 120) {
+     const addHeart = (this.state.heart - 120) * 0.0008
+
+      
+
+    } else if (this.state.steps > 10000) {
+      const addSteps = (this.state.steps - 10000) * 0.00002
+
+      
+    }
+   
+    this.setState({ water: changeWater.toFixed(2)})
+  }
+  
+
+
+
 
   render() {
 
@@ -101,6 +121,9 @@ class App extends React.Component {
 }
 
 export default App;
+
+
+
 
 
 
