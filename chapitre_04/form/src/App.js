@@ -10,12 +10,40 @@ import Submit from './components/Submit'
 
 class App extends React.Component {
 
-render (){
+  constructor (){
+    super()
+
+    this.state = {
+      email : "",
+      password : ""
+      
+    }
+    this.onValidateemail = this.onValidateemail.bind(this)
+    this.onValidatepassword = this.onValidatepassword.bind(this)
+  }
+  
+  onValidateemail(e){
+    
+    this.setState ({
+      email : e.target.value
+
+    })
+  }
+  
+  onValidatepassword(e){
+    this.setState({
+      password : e.target.value
+    })
+  }
+
+  
+  render (){
 
   return (
     <div>
+      <h1 style = {{textAlign : 'center'}}>Login</h1>
       <form>
-        <Hommail/>
+        <Hommail password ={this.state.password} email = {this.state.email} />
         <Submit/>
         <Checkbox/>
       </form>
