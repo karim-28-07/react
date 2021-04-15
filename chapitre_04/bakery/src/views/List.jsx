@@ -8,7 +8,7 @@ class List extends React.Component {
         return(
 
             <div>
-                <List />
+                list
             </div>
         )
     }

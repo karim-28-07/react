@@ -8,7 +8,7 @@ class Add extends React.Component {
         return(
 
             <div>
-                <Add />
+                Add
             </div>
         )
     }
