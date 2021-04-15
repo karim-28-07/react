@@ -5,6 +5,7 @@ class hommail extends React.Component {
 
 
     render() {
+        console.log(this.props);
         return (
 
             <div>
@@ -12,20 +13,20 @@ class hommail extends React.Component {
                 <div className="mb-3 col-6 offset-3">
                     <label className="form-label">Email address</label>
                     <input 
-                    type="email" 
+                    type="text" 
                     className="form-control" 
                     value ={this.props.email} 
-                    onInput ={this.props.onValidateemail} />
+                    onInput ={this.props.onEmail} />
                 </div>
 
 
                 <div className="mb-3 col-6 offset-3">
                     <label className="form-label">Password</label>
                     <input 
-                    type="password" 
+                    type="text" 
                     className="form-control" 
                     value = {this.props.password}
-                    onInput ={this.props.onValidatepassword} />
+                    onInput ={this.props.onChange} />
                 </div>
 
             </div>

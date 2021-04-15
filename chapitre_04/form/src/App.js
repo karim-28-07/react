@@ -18,19 +18,19 @@ class App extends React.Component {
       password : "",
       
     }
-    this.onValidateemail = this.onValidateemail.bind(this)
-    this.onValidatepassword = this.onValidatepassword.bind(this)
+    this.onValidateEmail = this.onValidateEmail.bind(this)
+    this.onValidatePassword = this.onValidatePassword.bind(this)
   }
   
-  onValidateemail(e){
-    console.log("Im the console");
+  onValidateEmail(e){
+    
     this.setState ({
       email : e.target.value
 
     })
   }
   
-  onValidatepassword(e){
+  onValidatePassword(e){
     this.setState({
       password : e.target.value
     })
@@ -44,7 +44,9 @@ class App extends React.Component {
       <h1 style = {{textAlign : 'center'}}>Login</h1>
       <form>
         <Hommail password ={this.state.password} email = {this.state.email} 
-        value ={this.state.email} value = {this.state.password} onInput = {this.onValidateemail}  />
+        type = {this.props.type} 
+        value ={this.state.email} value = {this.state.password} 
+        onEmail = {this.onValidateEmail} onChange = {this.onValidatePassword} />
         <Submit/>
         <Checkbox/>
       </form>
