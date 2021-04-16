@@ -14,12 +14,14 @@ class Add extends React.Component {
     }
 
     updateProductName(event){
+        
         this.setState ({
             productName : event.target.value
         })
     }
 
     updatePrice(event){
+        
         this.setState ({
             price : event.target.value
         })
@@ -31,10 +33,15 @@ class Add extends React.Component {
         return(
 
             <div>
-                Add
+                <h2>Add</h2>
                 <input type ='text' onChange = {this.updateProductName}/>
-                <input type = 'range' min = {1} max= {10} onChange ={this.updatePrice}/>
-                <button type = 'Add' onClick = {this.props.price}/>
+
+                <input type = 'range' min = {1} max= {10} value = {this.state.price} onChange ={this.updatePrice}/>
+
+                <button type = 'Add' 
+                onClick = {()=> this.props.addItem(this.state.productName,this.state.price)}
+                type="button" class="btn btn-outline-primary">Add</button>
+
             </div>
         )
     }

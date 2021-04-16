@@ -21,22 +21,28 @@ class App extends React.Component {
     this.selectAdd = this.selectAdd.bind(this)
     this.selectList = this.selectList.bind(this)
     this.selectPay = this.selectPay.bind(this)
+    this.ajouter = this.ajouter.bind(this)
   }
 
-  addItem(name,price){
-    const obj = { name : 'xx', price : 'xx'}
-    this.setState ({ 
+  ajouter(n, p) {
 
-     items : [...this.state.items, obj]
-      
+    console.log("n", n, "p", p);
+
+    const obj = { name: n, price: p }
+    const updatItems = this.state.items
+    updatItems.push(obj)
+    this.setState({
+
+      items: updatItems
+
     })
-    console.log(this.state.items);
+    console.log("items", this.state.items);
   }
 
 
   selectAdd() {
     this.setState({ activeTab: 'add' });
-    
+
   }
 
 
@@ -54,13 +60,15 @@ class App extends React.Component {
 
     return (
       <div>
-        <h1>Bakery</h1>
-        <button type="button" class="btn btn-outline-primary"
-          isSelected={this.state.activeTab} onClick={this.selectAdd} >Add</button>
-        <button type="button" class="btn btn-outline-primary"
-          isSelected={this.state.activeTab} onClick={this.selectList} >List</button>
-        <button type="button" class="btn btn-outline-primary"
-          isSelected={this.state.activeTab} onClick={this.selectPay} >Pay</button>
+        <h1 >Bakery</h1>
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+          <button type="button" class="btn btn-outline-primary"
+            isSelected={this.state.activeTab} onClick={this.selectAdd} >Add</button>
+          <button type="button" class="btn btn-outline-primary"
+            isSelected={this.state.activeTab} onClick={this.selectList} >List</button>
+          <button type="button" class="btn btn-outline-primary"
+            isSelected={this.state.activeTab} onClick={this.selectPay} >Pay</button>
+        </div>
 
       </div>
     )
@@ -70,22 +78,22 @@ class App extends React.Component {
     if (this.state.activeTab == 'add') {
       return (
         <section>
-          <h2><Add /></h2>
+          <Add addItem={this.ajouter} />
         </section>
       );
     } else if (this.state.activeTab == 'List')
       return (
         <section>
-          <h2><List /></h2>
+          <List Liste={this.state.items} />
         </section>
       );
 
     else if (this.state.activeTab == 'Pay')
-    return (
-      <section>
-        <h2><Pay /></h2>
-      </section>
-    )
+      return (
+        <section>
+          <Pay />
+        </section>
+      )
   }
 
 
@@ -93,21 +101,21 @@ class App extends React.Component {
 
 
 
-render() {
+  render() {
 
-  return (
-    <div>
+    return (
+      <div className= "col-6 offset-4">
 
-      <Button />
-      <Button />
-      <Button />
-      {this.renderHead()}
-      {this.renderContent()}
+        <Button />
+        <Button />
+        <Button />
+        {this.renderHead()}
+        {this.renderContent()}
 
-    </div>
-  )
+      </div>
+    )
 
-}
+  }
 
 }
 

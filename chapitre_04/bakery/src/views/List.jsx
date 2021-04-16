@@ -8,7 +8,11 @@ class List extends React.Component {
         return(
 
             <div>
-                list
+                <h1>list</h1> 
+                <ul>
+                {this.props.Liste.map ((elem)=> <li>{elem.name} {elem.price} </li>)}
+                
+                </ul>
             </div>
         )
     }
