@@ -1,32 +1,22 @@
 
 import React from "react";
-import NavBar from './Components/Navbar/NavBar.js'
+import Game from "./Components/Game"
 import "./App.css";
 
 class App extends React.Component {
   
-   clubPremierLigue = [
-
-
-    {
-      name: ManchesterCity, color: Blue,
-      name: Arsenal, color: Red,
-      name: ManchesterUnited, color: red,
-      name: Chelsea, color: Blue,
-    }
-  ]
+  
 
 
   render() {
     return (
-      <div >
-        <h4>props club is : {this.clubPremierLigue.name} and the color is :
-                 {this.props.color} </h4>
+    
+        <Game />
 
-        <h4></h4>
-        <NavBar />
+      
+        
 
-      </div>
+      
     );
   }
 }
