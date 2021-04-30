@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./components/Button"
+// import Button from "./components/Button"
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css"
 import Card from "./components/Card"
@@ -24,9 +24,13 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    fetch("https://restcountries.eu/rest/v2/name/france")
+    console.log("I am componentDidMount")
+
+    fetch("http://localhost:8000/country/")
       .then(response => response.json())
       .then(result => {
+
+        console.log("resultat", result)
 
         this.setState({
           name: result[0].name,
@@ -43,7 +47,7 @@ class App extends React.Component {
   getCountry(country) {
 
 
-    fetch("https://restcountries.eu/rest/v2/name/" + country)
+    fetch("http://localhost:8000/country/" + country)
 
       .then(response => response.json())
       .then(result => {
@@ -62,10 +66,14 @@ class App extends React.Component {
 
   }
 
+  componentDidUpdate(){
+     console.log("I am componentDidUpdate")
+  }
+
   allCountry() {
 
 
-    fetch("https://restcountries.eu/rest/v2/name/")
+    fetch("http://localhost:8000/country/")
 
       .then(response => response.json())
       .then(result => {
@@ -82,7 +90,7 @@ class App extends React.Component {
       })
       .catch(err => console.error(err))
 
-    //     this.allCountry=this.allCountry.bind()
+    
   }
 
   findCountry(event) {
@@ -95,7 +103,9 @@ class App extends React.Component {
 
 
   render() {
+
     console.log("state search : ", this.state.search)
+
     return (
       <div>
         <div className="container p-3">
