@@ -15,7 +15,8 @@ class App extends React.Component {
       flag: "",
       population: "",
       region: "",
-      search: ""
+      search: "",
+      country : ""
 
     }
     
@@ -26,19 +27,20 @@ class App extends React.Component {
 
     console.log("I am componentDidMount")
 
-    fetch("http://localhost:8000/country/")
+    fetch("http://localhost:8000/country/:name")
       .then(response => response.json())
       .then(result => {
-
         console.log("resultat", result)
+        console.log("country", result.country)
+        console.log("resultat country name", result.country[0].name)
 
-        this.setState({
-          name: result[0].name,
-          capital: result[0].capital,
-          flag: result[0].flag,
-          population: result[0].population,
-          region: result[0].region
-        })
+      //   this.setState({
+      //     name: result[0].name,
+      //     capital: result[0].capital,
+      //     flag: result[0].flag,
+      //     population: result[0].population,
+      //     region: result[0].region
+      //   })
       })
       .catch(err => console.error(err))
 
