@@ -5,6 +5,8 @@ import Add from "./views/Add"
 import Pay from "./views/Pay"
 import List from "./views/List"
 import Button from "./Components/Button"
+import Card from "./Components/Card"
+
 
 
 class App extends React.Component {
@@ -111,6 +113,7 @@ class App extends React.Component {
         <Button />
         {this.renderHead()}
         {this.renderContent()}
+        <Card />
 
       </div>
     )
