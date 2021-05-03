@@ -11,15 +11,17 @@ class Card extends React.Component {
         }
     }
 
-    componentDidMount (){
-        
-        fetch (
-            "https://raw.githubusercontent.com/konexio/digitous-assest/main/bakery/"
-             + this.props.productName)
-        .then (response => response.blob())
-        .then (result =>{
+    componentDidMount() {
 
-        })
+        fetch(
+            "https://raw.githubusercontent.com/konexio/digitous-assest/main/bakery/"
+            + this.props.productName)
+            .then(response => response.blob())
+            .then(result => {
+
+                console.log(result);
+
+            })
     }
 
 
@@ -33,8 +35,11 @@ class Card extends React.Component {
                 {/* {this.props.onClick} */}
                 {/* {this.props.price} */}
                 <div>
-                    <button onChange = {()=>this.props.onClick(this.props.productName,this.props.price)}> 
-                    <img src={this.state.image} alt="image"/></button>
+
+                    <button style={{backgroundImage: `url(${this.state.image})`, width : "50px", height : "30px"}}
+                    onClick={() => this.props.onClick(this.props.productName, this.props.price)}>
+                        </button>
+
                 </div>
             </>
         )

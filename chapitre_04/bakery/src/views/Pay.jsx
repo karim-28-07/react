@@ -1,4 +1,5 @@
 import React from "react"
+import Card from "../Components/Card";
 
 class Pay extends React.Component {
 
@@ -33,6 +34,13 @@ class Pay extends React.Component {
                 <div items={this.props.items}>
 
                     <h2>Pay</h2>
+
+                    {this.props.items.map((elem)=>{
+                        return <Card productName = {elem.name} 
+                        price= {elem.price} onClick = {this.handleSelect}/>
+                    })}
+                    
+
                 </div>
             </>
         )

@@ -93,7 +93,7 @@ class App extends React.Component {
     else if (this.state.activeTab == 'Pay')
       return (
         <section>
-          <Pay />
+          <Pay items = {this.state.items} />
         </section>
       )
   }
