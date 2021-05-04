@@ -1,24 +1,14 @@
 
-import React from "react";
-import Game from "./Components/Game"
-import "./App.css";
+import React, { Component } from 'react'
 
-class App extends React.Component {
-  
-  
-
-
+export class App extends Component {
   render() {
     return (
-    
-        <Game />
-
-      
+      <div>
         
-
-      
-    );
+      </div>
+    )
   }
 }
 
-export default App;
+export default App

@@ -113,7 +113,7 @@ class App extends React.Component {
         <Button />
         {this.renderHead()}
         {this.renderContent()}
-        <Card />
+       
 
       </div>
     )

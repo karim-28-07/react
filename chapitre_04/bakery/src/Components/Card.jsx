@@ -7,19 +7,27 @@ class Card extends React.Component {
         super()
 
         this.state = {
-            image: "../../public/images/item.png"
+            image: "images/item.png"
         }
     }
 
     componentDidMount() {
 
         fetch(
-            "https://raw.githubusercontent.com/konexio/digitous-assest/main/bakery/"
-            + this.props.productName)
+            "https://raw.githubusercontent.com/konexio/digitous-assest/main/bakery/"+this.props.productName+".png")
             .then(response => response.blob())
             .then(result => {
+                // console.log(result);
 
-                console.log(result);
+                const photo = URL.createObjectURL(result)
+
+                console.log("afiche moi photo ", photo);
+
+                this.setState ({
+                    image : photo
+                })
+
+
 
             })
     }
@@ -27,8 +35,8 @@ class Card extends React.Component {
 
     render() {
 
-        console.log(this.props);
-
+        console.log("Crad affiche this.props ", this.props);
+        // console.log("Card affiche image ", this.state.image);
         return (
             <>
                 {/* {this.props.productName} */}
@@ -36,9 +44,13 @@ class Card extends React.Component {
                 {/* {this.props.price} */}
                 <div>
 
-                    <button style={{backgroundImage: `url(${this.state.image})`, width : "50px", height : "30px"}}
-                    onClick={() => this.props.onClick(this.props.productName, this.props.price)}>
-                        </button>
+                    <button
+                        onClick={() => this.props.onClick(this.props.productName,
+                            this.props.price)}
+                    >
+                        <img src={this.state.image} style = {{width :300, height : 200}} alt="image items"/>
+
+                    </button>
 
                 </div>
             </>
