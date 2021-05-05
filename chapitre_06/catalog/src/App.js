@@ -1,22 +1,36 @@
 import React, { Component } from 'react'
-import {BrowserRouter, Route, Link, Switch} from "react-router-dom"
-import Accueil from './Page/Accueil'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import movies from './movies.json'
+import Accueil from './Pages/Accueil'
+import Movie from './Pages/Movie'
 
 
 export class App extends Component {
-
   render() {
 
-    console.log("afiche movies ", movies);
-
     return (
-      <div>
-      <h1>Film</h1>
-      <Accueil movies = {movies}/>
-      
-        
-      </div>
+
+      <BrowserRouter>
+
+        <div>
+
+          <h1>Movies</h1>
+
+          {/* {movies} */}
+
+          <Accueil />
+
+        </div>
+
+        <Switch>
+
+          <Route path='/:id' exact component={Movie}></Route>
+
+        </Switch>
+
+
+
+      </BrowserRouter>
     )
   }
 }
