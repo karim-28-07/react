@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Card from '../components/Card'
 
 export class Popular extends Component {
 
@@ -15,47 +16,28 @@ export class Popular extends Component {
             .then(data => {
 
                 // console.log("Popular data ", data);
-                console.log("Popular data ", data);
+                console.log("Popular data ", data.results);
 
                 this.setState({
-                    movies: data
+                    movies: data.results
                 })
 
             })
     }
 
-    renderMovies() {
-
-
-        if (this.state.movies === 0) {
-
-            return (
-
-                <div>
-                    <h1>Patientez un instant, nous sommes en train
-                        de charger la liste de pays</h1>
-                </div>
-            );
-
-        } else {
-
-            return (
-
-                <ul>
-                    {/* {this.state.movies.map((elem) => <li key={elem}>{elem}</li>)} */}
-                </ul>
-            )
-        }
-    }
-
-
-
+    
     render() {
         console.log("Popular state movies ", this.state.movies);
         return (
             <div>
                 <h1>Popular</h1>
-                {this.renderMovies()}
+                
+
+                {
+                    this.state.movies.map(elem => {
+                        return <Card {...elem} />
+                    })
+                }
             </div>
         )
 
