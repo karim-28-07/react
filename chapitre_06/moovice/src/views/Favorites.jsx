@@ -1,60 +1,58 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Card from '../components/Card'
+import { getMovieAPI } from '../components/utils/Api'
 
-export class Favorites extends Component {
+class Favorites extends Component {
 
     state = {
         movies: [],
-        favIDs: this.getStorage()
+        favIds: this.getStorage()
     }
 
     getStorage() {
-
-        const favorites = JSON.parse(localStorage.getItem("favorites"))
-        console.log("Favorites tyepof favorites", typeof(favorites))
-        return favorites
+        return JSON.parse(localStorage.getItem("favorites")) || []
     }
 
-    
     getMovie(id) {
-
-        const apiKey = "e441f8a3a151d588a4932d2c5d310769"
-
-        fetch(`http://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
-            .then(response => response.json())
+        
+        getMovieAPI(id)
             .then(data => {
-                console.log("Favorites data", data)
+
+                const newMovies = [...this.state.movies, data]
 
                 this.setState({
-                    movies: [...this.state.movies, data]
+                    movies: newMovies
                 })
-
-
 
             })
 
     }
 
     componentDidMount() {
-        
-            this.state.favIDs.map(item => {
-                
-                return this.getMovie(item)
-            })
-        
+        this.state.favIds.map(elem => this.getMovie(elem))
     }
 
     render() {
-
-        console.log("Favorites this.state.movies", this.state.movies)
-
         return (
+            <div className="container">
+                <h1 className="text-center">Favorites</h1>
 
-            <div>
-                <h1>Favorites</h1>
-                {/* {this.state.favIDs} */}
+                <div className="row">
+                    {
+                        this.state.movies.map(elem => {
+                            return (
+                                <div className="col-6">
+                                    <Card {...elem} />
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+
+
             </div>
-        )
+        );
     }
 }
 
-export default Favorites
+export default Favorites;
